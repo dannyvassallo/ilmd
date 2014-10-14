@@ -1,4 +1,5 @@
-  $(function() {
+var ready;
+ready = function() {
     var availableTags = [
         "Susan E. Kadlec CNM",
         "Alan Lockwood Rankin DDS",
@@ -1622,4 +1623,7 @@
     $( "#micropost_drname" ).autocomplete({
       source: availableTags
     });
-    });
+    };
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
