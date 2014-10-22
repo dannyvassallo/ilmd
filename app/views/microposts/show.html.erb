@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Drname:</strong>
   <%= @micropost.drname %>
@@ -12,8 +10,10 @@
 
 <p>
   <strong>User:</strong>
-  <%= @micropost.user_id %>
+  <%= @micropost.user.first_name %> <%= @micropost.user.last_name %>
 </p>
 
+<% if @micropost.user == current_user %>
 <%= link_to 'Edit', edit_micropost_path(@micropost) %> |
+<% end %>
 <%= link_to 'Back', microposts_path %>
