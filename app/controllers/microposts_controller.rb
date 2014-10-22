@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /microposts
   # GET /microposts.json
@@ -30,7 +31,7 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       if @micropost.save
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
+        format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class MicropostsController < ApplicationController
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully updated.' }
+        format.html { redirect_to @micropost, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @micropost }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     respond_to do |format|
-      format.html { redirect_to microposts_url, notice: 'Micropost was successfully destroyed.' }
+      format.html { redirect_to microposts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +69,13 @@ class MicropostsController < ApplicationController
     def set_micropost
       @micropost = Micropost.find(params[:id])
     end
+
+    def correct_user
+      @user = current_user || User.new
+      @micropost = @user.microposts.find_by(id: params[:id])
+      redirect_to microposts_path, notice: "Not authorized to edit this post!" if @micropost.nil?
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
