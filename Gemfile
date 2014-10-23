@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+
+gem 'sunspot_rails'
+ 
+group :development do
+    gem 'sunspot_solr'
+end

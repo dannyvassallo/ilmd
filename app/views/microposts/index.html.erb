@@ -1,5 +1,12 @@
 <h1>Listing microposts</h1>
 
+
+<%= form_tag microposts_path, :method => :get do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => nil, :class => "btn btn-default postsearch" %>
+<% end %>
+
+
 <table>
   <thead>
     <tr>

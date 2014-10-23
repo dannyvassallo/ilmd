@@ -7,6 +7,12 @@ class MicropostsController < ApplicationController
   # GET /microposts.json
   def index
     @microposts = Micropost.all
+    
+    @query = Micropost.search do
+        fulltext params[:search]
+    end
+    @microposts = @query.results
+
   end
 
   # GET /microposts/1
@@ -79,6 +85,8 @@ class MicropostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
-      params.require(:micropost).permit(:drname, :content, :user_id)
+      params.require(:micropost).permit(:drname, :content, :user_id).tap do |params|
+        params[:drname].gsub!(",",", ")
+      end
     end
 end
