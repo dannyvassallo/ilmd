@@ -1619,7 +1619,7 @@ ready = function() {
         "Ronald Siwoff OD",
         "Kenneth B. Ehrlich OD",
     ];
-        $( "#micropost_drname" ).autocomplete({
+        $( "#search" ).autocomplete({
           source: availableTags
         });    
 
