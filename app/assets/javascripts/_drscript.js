@@ -1623,6 +1623,9 @@ ready = function() {
     $( "#micropost_drname" ).autocomplete({
       source: availableTags
     });
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
     };
 
     $(document).ready(ready);

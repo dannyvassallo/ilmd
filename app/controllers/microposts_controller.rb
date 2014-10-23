@@ -7,6 +7,12 @@ class MicropostsController < ApplicationController
   # GET /microposts.json
   def index
     @microposts = Micropost.all
+    
+    @query = Micropost.search do
+        fulltext params[:search]
+    end
+    @microposts = @query.results
+
   end
 
   # GET /microposts/1
