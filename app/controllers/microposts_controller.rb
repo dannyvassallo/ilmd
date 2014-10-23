@@ -65,7 +65,7 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     respond_to do |format|
-      format.html { redirect_to microposts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to microposts_url, notice: 'Post was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -79,7 +79,7 @@ class MicropostsController < ApplicationController
     def correct_user
       @user = current_user || User.new
       @micropost = @user.microposts.find_by(id: params[:id])
-      redirect_to microposts_path, notice: "Not authorized to edit this post!" if @micropost.nil?
+      redirect_to root_path, notice: "Not authorized to edit this post!" if @micropost.nil?
     end
 
 
