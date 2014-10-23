@@ -4,8 +4,10 @@
   <title>I Love My Doctor</title>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -22,7 +24,6 @@
 
 
 <%= yield %>
-
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 </body>

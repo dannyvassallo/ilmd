@@ -1,3 +1,11 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#s2id_micropost_drname, #micropost_content{
+  width: 100% !important;
+}
+#micropost_content{
+    min-height: 200px;
+}

@@ -11,15 +11,13 @@
     </div>
   <% end %>
 
-  <div class="ui-widget">
   <div class="field">
-    <%= f.label :drname %><br>
+    <label>Doctor's Name(s)</label><br>
     <%= f.text_field :drname %>
-  </div>
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </div>
     <%= f.hidden_field :user_id %>
   <div class="actions">
