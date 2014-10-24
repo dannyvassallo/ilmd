@@ -13,3 +13,4 @@
 development:
   SENDGRID_USER: "********"
   SENDGRID_PASSWORD: "***********"
+  SECRET_KEY_BASE: "*****************************"
