@@ -39,5 +39,5 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
-
+  config.secret_key = '460f4d183bb743132ff28a17a0dd2a4a775084d78ced96cee6de6fddf4902f7a65a8dc8f7bf2af3a6cf2988c056b4b536f24c03bcd4610efb03255cf1e69b17e'
 end
