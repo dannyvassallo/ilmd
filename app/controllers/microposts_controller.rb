@@ -30,6 +30,7 @@ class MicropostsController < ApplicationController
       if @micropost.save
         format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
+        PostMailer.posted_confirmation(@micropost.user).deliver
       else
         format.html { render :new }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
