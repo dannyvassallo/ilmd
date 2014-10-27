@@ -13,11 +13,13 @@
       <%= link_to 'Add a Note for YOUR Doctor', new_micropost_path, :class => "btn btn-default"  %>
     </div>
     <br>
-
-    <h1>Recent Updates</h1>
-
+    <div class="indexh1">
+      <h1>What patients are saying:</h1>
+    </div>
+    <br>
 
     <% @microposts.each do |micropost| %>
+        <div id="micropost">
         <div class="bubble">
           <h4>To: <%= micropost.drname %></h4>
           <p><%= micropost.content %></p>
@@ -29,6 +31,12 @@
         <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
         <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
+        </div>
     <% end %>
+    <br>
+
+    <div class="paginate col-lg-12">
+      <%= will_paginate @microposts, :container => false, :params => { :search_text => params[:search_text] }, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>
