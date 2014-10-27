@@ -6,6 +6,7 @@ class Micropost < ActiveRecord::Base
   searchable do
     text :drname
     text :content
+    integer :id
   end
 
 end
