@@ -55,3 +55,6 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
 gem 'omniauth-facebook', '~> 1.4.0'
+
+gem 'profanity_filter'
+

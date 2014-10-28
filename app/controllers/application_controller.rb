@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user.try(:admin?)
   end
+  helper_method :admin?
 
   def authorize
     unless admin?

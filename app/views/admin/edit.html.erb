@@ -1,12 +1,15 @@
-Admin <td><%= @user.admin ? "Yes" : "No" %></td>
+<td><%= @user.email %></td>
+<td><%= @user.admin ? "Yes" : "No" %></td>
 
-<%= form_for(set_user) do |f| %>
-  <% if @micropost.errors.any? %>
+<form action="/admin/<%= @user.id %>" method="post">
+  <%= authenticity_token_tag %>
+
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@micropost.errors.count, "error") %> prohibited this micropost from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> Prohibited this admin from being added:</h2>
 
       <ul>
-      <% @micropost.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,15 +17,9 @@ Admin <td><%= @user.admin ? "Yes" : "No" %></td>
   <% end %>
 
   <div class="field">
-    <label>Doctor's Name(s)</label><br>
-    <%= f.text_field :drname %>
+    <input type="checkbox" name="user[admin]" value="true" <%= "checked=\"checked\"" if @user.admin %> />
+    <input type="hidden" name="user[id]" value="<%= @user.id %>" />
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-    <%= f.hidden_field :user_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+  <input type="submit" />
+</form>

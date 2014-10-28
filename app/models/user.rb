@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :last_name
   validates_presence_of :first_name
+  profanity_filter! :first_name, :last_name
+
 
   has_many :microposts
 
