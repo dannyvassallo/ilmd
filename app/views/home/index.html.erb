@@ -19,7 +19,7 @@
     <br>
 
     <% @microposts.each do |micropost| %>
-        <div id="micropost">
+      <div id="micropost">
         <div class="bubble">
           <h4>To: <%= micropost.drname %></h4>
           <p><%= micropost.content %></p>
@@ -27,11 +27,11 @@
         <br>
         <p><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
         <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-default" %>
-        <% if micropost.user == current_user %>
-        <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
-        <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if micropost.user == current_user || admin? %>
+          <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
+          <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-        </div>
+      </div>
     <% end %>
     <br>
 

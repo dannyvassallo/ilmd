@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_filter :authorize, :except => :index
+  
   def index
     @query = Micropost.search do
       fulltext params[:search]
@@ -7,4 +9,5 @@ class HomeController < ApplicationController
     end
     @microposts = @query.results
   end
+
 end

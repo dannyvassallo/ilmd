@@ -71,7 +71,7 @@ class MicropostsController < ApplicationController
     def correct_user
       @user = current_user || User.new
       @micropost = @user.microposts.find_by(id: params[:id])
-      redirect_to root_path, notice: "Not authorized to edit this post!" if @micropost.nil?
+      redirect_to root_path, notice: "Not authorized to edit this post!" if @micropost.nil? unless admin?
     end
 
 

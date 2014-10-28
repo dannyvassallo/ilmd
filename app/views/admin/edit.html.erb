@@ -1,0 +1,25 @@
+<td><%= @user.email %></td>
+<td><%= @user.admin ? "Yes" : "No" %></td>
+
+<form action="/admin/<%= @user.id %>" method="post">
+  <%= authenticity_token_tag %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> Prohibited this admin from being added:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <input type="checkbox" name="user[admin]" value="true" <%= "checked=\"checked\"" if @user.admin %> />
+    <input type="hidden" name="user[id]" value="<%= @user.id %>" />
+  </div>
+
+  <input type="submit" />
+</form>
