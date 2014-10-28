@@ -10,7 +10,7 @@
       <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
       <% end %>
       <br>
-      <%= link_to 'Add a Note for YOUR Doctor', new_micropost_path, :class => "btn btn-default"  %>
+      <%= link_to 'Add a Note for YOUR Doctor', new_micropost_path, :class => "btn btn-default main-cta"  %>
     </div>
     <br>
     <div class="indexh1">
@@ -25,12 +25,16 @@
           <p><%= micropost.content %></p>
         </div>
         <br>
-        <p><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
-        <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-default" %>
-        <% if micropost.user == current_user || admin? %>
-          <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
-          <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+        <div class="userandbuttons">
+          <p class="usertext"><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
+          <p class="buttongroup">
+            <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-default" %>
+            <% if micropost.user == current_user || admin? %>
+              <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
+              <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </p>
+        </div>
       </div>
     <% end %>
     <br>
