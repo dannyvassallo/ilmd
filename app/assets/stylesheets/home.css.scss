@@ -4,8 +4,16 @@
 body{
   background-image: url(https://s3.amazonaws.com/myfangate.com/ilovemydoctor/congruent_pentagon.png);
   background-repeat: repeat; 
+  margin-top: 120px;
 }
 
+.alert{
+  margin-top: -32px;
+  max-width: 1170px;
+  margin: -20px auto 32px auto;
+  text-align: center;
+  border-radius: 15px;
+}
 .main-logo{
   margin: 0 auto;
   text-align: center;
@@ -25,9 +33,13 @@ nav.navbar.navbar-default{
   border-radius: 15px;
   border: solid 1px #ccc;
   margin-bottom: 100px;
-  margin-top: 120px;
   background-color: white;
   box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+}
+
+
+.pagination{
+  margin-top: 100px;
 }
 
 #searchzone{
