@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :microposts
 
   root to: 'home#index'
+
+  get 'admin' => 'admin#index'
+  get 'admin/:id/edit' => 'admin#edit', :as => 'admin_edit'
+  post 'admin/:id' => 'admin#update'
+
  
   devise_for :users, :controllers => { registrations: 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
 

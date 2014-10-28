@@ -7,4 +7,5 @@ class HomeController < ApplicationController
     end
     @microposts = @query.results
   end
+
 end
