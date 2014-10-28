@@ -20,6 +20,11 @@
 
     <% @microposts.each do |micropost| %>
       <div id="micropost">
+        <% if current_user.try(:admin?) %>
+          <div class="admin-trash">
+          <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>  
+        <% end %>
         <div class="bubble">
           <h4>To: <%= micropost.drname %></h4>
           <p><%= micropost.content %></p>

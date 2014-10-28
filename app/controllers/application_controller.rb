@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user.try(:admin?)
   end
+
+  def authorize
+    unless admin?
+      flash[:error] = "unauthorized access"
+      redirect_to home_path
+      false
+    end
+  end
+
 end
