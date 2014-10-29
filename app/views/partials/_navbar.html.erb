@@ -21,7 +21,7 @@
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary'  %>
-        <%= link_to "Login", new_user_session_path, :class => 'btn btn-success'  %>
+        <%= link_to "Log in", new_user_session_path, :class => 'btn btn-success'  %>
       <% end %>
       <% if admin? %>
         <%= link_to '<i class="fa fa-cog"></i>'.html_safe, admin_path, :class => 'btn btn-primary'  %>

@@ -9,6 +9,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script>window.fbAppId="<%= ENV['APP_ID'] %>";</script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script>
+    // take all events from session and convert to javascript google analytics event tracking
+    <% each_event do |category, action, label| %>
+      console.log("<%= [category, action, label].join(" - ") %>");
+      // ga.push("<%# event %>");
+    <% end %>
+  </script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.js"></script>
   <%= csrf_meta_tags %>
   <div id="fb-root"></div>

@@ -223,6 +223,7 @@ nav.navbar.navbar-default{
   border-radius: 15px;
   border: solid 1px #ccc;
   margin-bottom: 100px;
+  max-width: 700px;
   background-color: white;
   box-shadow: 5px 5px 20px rgba(0,0,0,.5);
   .bubble{
@@ -244,7 +245,12 @@ nav.navbar.navbar-default{
     text-align: center !important;
     margin: 0 auto !important;
   }
-  input#user_password, input#user_email{
+  input#user_password,
+  input#user_password_confirmation,
+  input#user_email,
+  input#user_first_name,
+  input#user_last_name,
+  input#user_current_password{
     width: 100%;
     max-width: 500px;
     text-align: left;
@@ -257,6 +263,10 @@ nav.navbar.navbar-default{
     max-width: 500px;
     text-align: left;
   }
+}
+
+.actions{
+  text-align: center;
 }
 
 
@@ -291,4 +301,12 @@ nav.navbar.navbar-default{
   .navbar-text.pull-right{
       font-size: 10px !important;
   }
+}
+
+
+//anchor tags//
+
+.anostyle:hover{
+  background-color: white;
+  color: black; 
 }

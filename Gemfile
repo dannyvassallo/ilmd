@@ -60,3 +60,7 @@ gem 'profanity_filter'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+group :production do
+  gem 'pg'
+end
