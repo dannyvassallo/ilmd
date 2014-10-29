@@ -79,7 +79,7 @@ class MicropostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
-      params.require(:micropost).permit(:drname, :content, :user_id, :created_at).tap do |params|
+      params.require(:micropost).permit(:drname, :content, :user_id, :created_at, :id).tap do |params|
         params[:drname].gsub!(",",", ")
       end
     end

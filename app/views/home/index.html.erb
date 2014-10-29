@@ -10,7 +10,7 @@
       <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
       <% end %>
       <br>
-      <%= link_to 'Add a Note for YOUR Doctor', new_micropost_path, :class => "btn btn-default main-cta"  %>
+      <%= link_to '<i class="fa fa-pencil"></i> Add a Note for YOUR Doctor'.html_safe, new_micropost_path, :class => "btn btn-default main-cta"  %>
     </div>
     <br>
     <div class="indexh1">
@@ -19,7 +19,7 @@
     <br>
 
     <% @microposts.each do |micropost| %>
-      <div id="micropost">
+      <div class="micropost" data-id="<%= micropost.id %>">
         <div class="bubble">
           <h4>To: <%= micropost.drname %></h4>
           <p><%= micropost.content %></p>
@@ -28,6 +28,7 @@
         <div class="userandbuttons">
           <p class="usertext"><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
           <p class="buttongroup">
+            <a class="btn btn-default fb-share"><i class="fa fa-facebook"></i> Share</a>
             <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-default" %>
             <% if micropost.user == current_user || admin? %>
               <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>

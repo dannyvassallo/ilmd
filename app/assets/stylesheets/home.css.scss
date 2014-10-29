@@ -80,7 +80,7 @@ nav.navbar.navbar-default{
   text-align: center;
 }
 
-#micropost{
+.micropost{
   margin: 0 auto;
   .bubble{
     margin: 0 auto;
@@ -175,5 +175,13 @@ nav.navbar.navbar-default{
   .bubble:before, .bubble:after {
     right: auto;
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 440px){
+  p.buttongroup{
+    .btn{
+      font-size: 10px !important;
+    }
   }
 }
