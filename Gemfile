@@ -58,3 +58,5 @@ gem 'omniauth-facebook', '~> 1.4.0'
 
 gem 'profanity_filter'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
