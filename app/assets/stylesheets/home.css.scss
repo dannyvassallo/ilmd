@@ -1,7 +1,26 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin-top: 120px;
 
+  // background-image: url(https://s3.amazonaws.com/myfangate.com/ilovemydoctor/congruent_pentagon.png);
+  // background-repeat: repeat; 
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background: url(http://www.dhoomwallpaper.com/wp-content/uploads/2014/08/beach-scene_wallpaper-murals.jpg);
+}
+
+.alert{
+  margin-top: -32px;
+  max-width: 1170px;
+  margin: -20px auto 32px auto;
+  text-align: center;
+  border-radius: 15px;
+}
 .main-logo{
   margin: 0 auto;
   text-align: center;
@@ -9,6 +28,25 @@
     width: 100%;
     max-width: 500px;
   }
+}
+
+nav.navbar.navbar-default{
+    box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+    border-radius: 0 !important;
+}
+
+#main{
+  padding: 20px;
+  border-radius: 15px;
+  border: solid 1px #ccc;
+  margin-bottom: 100px;
+  background-color: white;
+  box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+}
+
+
+.pagination{
+  margin-top: 100px;
 }
 
 #searchzone{
@@ -42,14 +80,29 @@
   text-align: center;
 }
 
-#micropost{
+.micropost{
   margin: 0 auto;
   .bubble{
     margin: 0 auto;
   }
-  p{
+  .userandbuttons{
     margin: 0 auto;
     max-width: 600px;
+    height: 50px;
+    margin-bottom: 40px;
+    border-bottom: solid 1px #ccc;
+    p.usertext{
+      float: left;
+      font-size: 15px;
+      line-height: 30px;
+      i{
+        padding: 0 10px;
+        font-size: 25px;
+      }
+    }
+    p.buttongroup{
+      float: right;
+    }
   }
 }
 
@@ -63,6 +116,14 @@
   margin: 0 auto;
   padding: 20px 0 20px 0;
   text-align: right;
+}
+
+.main-cta{
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 50px !important;
+  font-size: 20px;
 }
 //Bubbles//
 
@@ -108,3 +169,19 @@
     z-index: 0;
 }
 // End Bubbles //
+
+
+@media (max-width: 600px) {
+  .bubble:before, .bubble:after {
+    right: auto;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 440px){
+  p.buttongroup{
+    .btn{
+      font-size: 10px !important;
+    }
+  }
+}

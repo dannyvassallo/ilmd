@@ -5,6 +5,8 @@ class MicropostsController < ApplicationController
 
   # GET /microposts
   # GET /microposts.json
+  def index
+  end
 
   # GET /microposts/1
   # GET /microposts/1.json
@@ -30,7 +32,7 @@ class MicropostsController < ApplicationController
       if @micropost.save
         format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
-        PostMailer.posted_confirmation(@micropost.user).deliver
+        PostMailer.posted_confirmation(@micropost).deliver
       else
         format.html { render :new }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
@@ -77,7 +79,7 @@ class MicropostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micropost_params
-      params.require(:micropost).permit(:drname, :content, :user_id, :created_at).tap do |params|
+      params.require(:micropost).permit(:drname, :content, :user_id, :created_at, :id).tap do |params|
         params[:drname].gsub!(",",", ")
       end
     end
