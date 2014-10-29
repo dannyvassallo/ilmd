@@ -1,5 +1,4 @@
-var ready;
-ready = function() {
+$(function() {
     var availableTags = [
         "Susan E. Kadlec CNM",
         "Alan Lockwood Rankin DDS",
@@ -1627,7 +1626,4 @@ ready = function() {
           createSearchChoice: function() { return null; },
           tags: availableTags,
         });
-    };
-
-    $(document).ready(ready);
-    $(document).on('page:load', ready);
+    });

@@ -1,6 +1,4 @@
-var fbloaded;
-fbloaded = function() {
-
+$(function(){
       // FACEBOOK //
 
       // FB ON CLICK //
@@ -33,6 +31,10 @@ fbloaded = function() {
           , fin;
 
           fin = url + path + postid;
+      
+      $('.fb-share').on('click', function(){
+        alert(fin)
+      });
 
         // Additional initialization code such as adding Event Listeners goes here
         FB.ui(
@@ -47,17 +49,11 @@ fbloaded = function() {
           function(response) {
             if (response && response.post_id) {
               alert('Thanks for sharing!');
-              fbshare(getVoteIDFromButton($btn));
-              incrementVotes($btn);
             } else {
               alert('Sorry! There was an error publishing your post. Please Try again.');
             }
           }
         );
-
-        $(".fb-share").on("click", function(){
-          alert(fin)
-        });
 
       }
 
@@ -70,7 +66,6 @@ fbloaded = function() {
       ref.parentNode.insertBefore(js, ref);
       }(document));
 
-    };
 
-    $(document).ready(fbloaded);
-    $(document).on('page:load', fbloaded);
+
+});

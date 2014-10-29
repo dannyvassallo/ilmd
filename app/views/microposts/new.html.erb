@@ -1,5 +1,7 @@
-<h1>New micropost</h1>
-  
-<%= render 'form' %>
+<div id="post" class="container">
+  <h1>New Note</h1>
+    
+  <%= render 'form' %>
 
-<%= link_to 'Back', root_path %>
+  <%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "btn btn-default" %>
+</div>
