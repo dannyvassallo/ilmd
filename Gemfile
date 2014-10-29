@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -41,10 +43,6 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem 'sunspot_rails'
- 
-group :development do
-    gem 'sunspot_solr'
-end
 
 gem 'foreman'
 
@@ -59,7 +57,12 @@ gem 'omniauth-facebook', '~> 1.4.0'
 gem 'profanity_filter'
 
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
+
+gem 'autoprefixer-rails' 
+
+group :development do
+    gem 'sunspot_solr'
+end
 
 group :production do
   gem 'pg'
