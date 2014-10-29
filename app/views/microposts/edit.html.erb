@@ -1,6 +1,9 @@
-<h1>Editing micropost</h1>
+<div id="post" class="container">
+<h1>Edit Note</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @micropost %> |
-<%= link_to 'Back', root_path %>
+<div class="show-btns">
+<%= link_to '<i class="fa fa-eye"></i> View'.html_safe, @micropost, :class => "btn btn-default" %>
+<%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "btn btn-default" %>
+</div>

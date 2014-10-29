@@ -3,6 +3,8 @@ class MicropostsController < ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  include AnalyticsHelper
+
   # GET /microposts
   # GET /microposts.json
   def index
@@ -30,6 +32,8 @@ class MicropostsController < ApplicationController
 
     respond_to do |format|
       if @micropost.save
+        # add "create micropost" event to session
+        add_event("thign", "stuff", "other thgin")
         format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
         PostMailer.posted_confirmation(@micropost).deliver

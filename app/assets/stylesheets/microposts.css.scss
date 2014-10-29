@@ -9,3 +9,38 @@
 #micropost_content{
     min-height: 200px;
 }
+
+.show-btns{
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#post{
+  padding: 20px;
+  border-radius: 15px;
+  border: solid 1px #ccc;
+  margin-bottom: 100px;
+  background-color: white;
+  box-shadow: 5px 5px 20px rgba(0,0,0,.5);
+  .bubble{
+    margin-top: 50px;
+  }
+  .show-btns{
+    margin-bottom: 50px;
+  }
+  form, h1{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  h1{
+    padding: 20px 0;
+  }
+}
+
+a.btn.btn-danger:visited,
+a.btn.btn-primary:visited,
+a.btn.btn-success:visited{
+  color: white;
+}

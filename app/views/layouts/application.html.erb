@@ -2,13 +2,20 @@
 <html>
 <head>
   <title>I Love My Doctor</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.min.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script>window.fbAppId="<%= ENV['APP_ID'] %>";</script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script>
+    // take all events from session and convert to javascript google analytics event tracking
+    <% each_event do |category, action, label| %>
+      console.log("<%= [category, action, label].join(" - ") %>");
+      // ga.push("<%# event %>");
+    <% end %>
+  </script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.js"></script>
   <%= csrf_meta_tags %>
   <div id="fb-root"></div>
@@ -28,7 +35,6 @@
 
 
 <%= yield %>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 </body>
 </html>
