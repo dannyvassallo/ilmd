@@ -15,10 +15,17 @@
  */
 
 /*BOOTSTRAP VARIABLES*/
-$brand-danger: blue;
+$brand-danger: #c0392b;
+$brand-primary: #094780;
+$brand-success: #608bb2;
 $link-hover-color: white;
-
-
+$navbar-default-bg: #fff;
+$pagination-bg: #fff;
+$pagination-border: #ccc;
+$pagination-border-radius: 15px;
+$pagination-active-bg: #094780;
+$pagination-hover-bg: #608bb2;
+$pagination-active-color: #fff;
 
 /*BOOTSTRAP IMPORT*/
  @import "bootstrap-sprockets";

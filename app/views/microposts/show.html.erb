@@ -14,8 +14,8 @@
       <p class="usertext"><i class="fa fa-user"></i><%= @micropost.user.first_name %> <%= @micropost.user.last_name %><p>
     </div>
     <div class="show-btns">
-     <a class="btn btn-default fb-share"><i class="fa fa-facebook"></i> Share</a>
-      <%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "btn btn-default" %>
+     <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>
+      <%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "btn btn-success" %>
       <% if @micropost.user == current_user %>
       <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(@micropost), :class => "btn btn-default" %>
       <% end %>

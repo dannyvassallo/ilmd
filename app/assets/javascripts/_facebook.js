@@ -40,11 +40,11 @@ $(function(){
         FB.ui(
           {
             method: 'feed',
-            name: 'Facebook Dialogs', // name of the product or content you want to share
+            name: 'I Love My Doctor', // name of the product or content you want to share
             link: fin, // link back to the product or content you are sharing
-            picture: 'http://fbrell.com/f8.jpg', // path to an image you would like to share with this content
-            caption: 'Reference Documentation', // caption
-            description: 'Dialogs provide a simple, consistent interface for applications to interface with users.' // description of your product or content
+            picture: 'https://s3.amazonaws.com/myfangate.com/ilovemydoctor/ilmdfbshareimage.jpg', // path to an image you would like to share with this content
+            caption: 'Saint Barnabas | I Love My Doctor', // caption
+            description: 'Let your doctor know how much you care! Leave a them a note today!' // description of your product or content
           },
           function(response) {
             if (response && response.post_id) {

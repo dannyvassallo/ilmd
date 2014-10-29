@@ -1,16 +1,21 @@
-<table class="table table-striped">
-  <tr>
-    <td><b>User Name</b></td>
-    <td><b>Email Address</b></td>
-    <td><b>Admin</b></td>
-    <td></td>
-  </tr>
-  <% @users.each do |user| %>
+<div class="admin container">
+  <h1>Admin Panel</h1>
+  <div class="row">
+    <table class="table table-striped">
       <tr>
-        <td><%= user.first_name %>&nbsp;<%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.admin ? "Yes" : "No" %></td>
-        <td><%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, admin_edit_path(user), :class => "btn btn-default" %></td>
+        <td><b>User Name</b></td>
+        <td><b>Email Address</b></td>
+        <td><b>Admin</b></td>
+        <td></td>
       </tr>
-  <% end %>
-</table>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.first_name %>&nbsp;<%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.admin ? "Yes" : "No" %></td>
+            <td><%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, admin_edit_path(user), :class => "btn btn-default" %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -30,4 +30,17 @@
   .show-btns{
     margin-bottom: 50px;
   }
+  form, h1{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  h1{
+    padding: 20px 0;
+  }
+}
+
+a.btn.btn-danger:visited,
+a.btn.btn-primary:visited,
+a.btn.btn-success:visited{
+  color: white;
 }

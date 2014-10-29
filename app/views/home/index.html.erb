@@ -7,10 +7,10 @@
       <%= form_tag root_path, :method => :get do %>
       <i class="fa fa-search"></i>
       <%= text_field_tag :search, params[:search], placeholder: 'Search for your doctor...', :class => "input-lg"  %>
-      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+      <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
       <% end %>
       <br>
-      <%= link_to '<i class="fa fa-pencil"></i> Add a Note for YOUR Doctor'.html_safe, new_micropost_path, :class => "btn btn-default main-cta"  %>
+      <%= link_to '<i class="fa fa-pencil"></i> Add a Note for your Doctor'.html_safe, new_micropost_path, :class => "btn btn-danger main-cta"  %>
     </div>
     <br>
     <div class="indexh1">
@@ -28,8 +28,8 @@
         <div class="userandbuttons">
           <p class="usertext"><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
           <p class="buttongroup">
-            <a class="btn btn-default fb-share"><i class="fa fa-facebook"></i> Share</a>
-            <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-default" %>
+            <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>
+            <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-success" %>
             <% if micropost.user == current_user || admin? %>
               <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
               <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
