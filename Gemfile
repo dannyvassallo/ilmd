@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -60,11 +58,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails' 
 
 group :development do
-    gem 'sunspot_solr'
     gem 'sqlite3'
 end
 
 group :production do
-  gem 'sunspot_solr'
   gem 'pg'
 end
