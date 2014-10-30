@@ -1,8 +1,9 @@
 == README
 
 
-== Start sunspot server ==
-* rake sunspot:solr:start 
+== Add Admin to first user ==
+* Open Rails Console
+* User.find(1).update :admin => true
 
 == application.yml ==
 * rename application.example.yml
