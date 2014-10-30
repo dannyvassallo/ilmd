@@ -33,7 +33,7 @@ class MicropostsController < ApplicationController
     respond_to do |format|
       if @micropost.save
         # add "create micropost" event to session
-        add_event("thign", "stuff", "other thgin")
+        add_event("thing", "stuff", "other thing")
         format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
         PostMailer.posted_confirmation(@micropost).deliver

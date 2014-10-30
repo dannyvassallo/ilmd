@@ -4,10 +4,9 @@ class Micropost < ActiveRecord::Base
   validates :content, length: { maximum: 140, minimum: 5 }
   profanity_filter! :content, :method => 'stars'
 
-  searchable do
-    text :drname
-    text :content
-    integer :id
+  def self.search(query)
+    s = "%#{query}%"
+    where("drname ILIKE ? OR content ILIKE ?", s, s)
   end
 
 end
