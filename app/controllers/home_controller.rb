@@ -2,12 +2,11 @@ class HomeController < ApplicationController
   before_filter :authorize, :except => :index
   
   def index
-    @query = Micropost.search do
-      fulltext params[:search]
-      paginate :page => params[:page] || 1, :per_page => 10
-      order_by :id, :desc
+    if params[:search]
+      @microposts = Micropost.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 30)
+    else
+      @microposts = Micropost.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 30)
     end
-    @microposts = @query.results
   end
 
 end
