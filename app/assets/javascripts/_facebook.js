@@ -48,8 +48,10 @@ $(function(){
           },
           function(response) {
             if (response && response.post_id) {
+              track('facebook-share', 'success');
               alert('Thanks for sharing!');
             } else {
+              track('facebook-share', 'fail');
               alert('Sorry! There was an error publishing your post. Please Try again.');
             }
           }

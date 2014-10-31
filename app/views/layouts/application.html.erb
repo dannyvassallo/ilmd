@@ -10,13 +10,6 @@
   <script>window.fbAppId="<%= ENV['APP_ID'] %>";</script>
   <script>window.analyticsId="<%= ENV['ANALYTICS_ID'] %>";</script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script>
-    // take all events from session and convert to javascript google analytics event tracking
-    <% each_event do |category, action, label| %>
-      console.log("<%= [category, action, label].join(" - ") %>");
-      // ga.push("<%# event %>");
-    <% end %>
-  </script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.1/select2.js"></script>
   <%= csrf_meta_tags %>
   <div id="fb-root"></div>
@@ -30,6 +23,13 @@
   ga('send', 'pageview');
 
   </script>
+  <script>
+  // take all events from session and convert to javascript google analytics event tracking
+  <% each_event do |category, action| %>
+    track("<%= category %>", "<%= action %>");
+    // ga.push("<%# event %>");
+  <% end %>
+</script>
 </head>
 <body>
 

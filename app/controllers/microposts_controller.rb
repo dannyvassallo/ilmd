@@ -3,8 +3,6 @@ class MicropostsController < ApplicationController
   before_action :set_micropost, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  include AnalyticsHelper
-
   # GET /microposts
   # GET /microposts.json
   def index
@@ -33,11 +31,12 @@ class MicropostsController < ApplicationController
     respond_to do |format|
       if @micropost.save
         # add "create micropost" event to session
-        add_event("thing", "stuff")
+        add_event("micropost", "create")
         format.html { redirect_to @micropost, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
         PostMailer.posted_confirmation(@micropost).deliver
       else
+        add_event("micropost", "failed-to-create")
         format.html { render :new }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
@@ -49,9 +48,11 @@ class MicropostsController < ApplicationController
   def update
     respond_to do |format|
       if @micropost.update(micropost_params)
+        add_event("micropost", "updated")
         format.html { redirect_to @micropost, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @micropost }
       else
+        add_event("micropost", "failed-to-update")
         format.html { render :edit }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
@@ -62,6 +63,7 @@ class MicropostsController < ApplicationController
   # DELETE /microposts/1.json
   def destroy
     @micropost.destroy
+    add_event("micropost", "deleted")
     respond_to do |format|
       format.html { redirect_to microposts_url, notice: 'Post was successfully deleted.' }
       format.json { head :no_content }

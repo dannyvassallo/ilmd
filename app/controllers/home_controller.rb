@@ -8,10 +8,5 @@ class HomeController < ApplicationController
       @microposts = Micropost.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 30)
     end
   end
-
-  def status
-    render html: '<b>html goes here<b/>'.html_safe
-  end
-
-
+  
 end
