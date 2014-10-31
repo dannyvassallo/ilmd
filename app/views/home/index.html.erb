@@ -13,12 +13,13 @@
       <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
       <% end %> 
     </div>
-    <br>
-    <div class="indexh1">
+  </div>
+  <br>
+    <div class="row indexh1">
       <h1>What patients are saying:</h1>
     </div>
     <br>
-
+    <div class="row">
     <% @microposts.each do |micropost| %>
       <div class="micropost" data-id="<%= micropost.id %>">
         <div class="bubble">
@@ -40,7 +41,9 @@
       </div>
     <% end %>
     <br>
+    </div>
 
+  <div class='row'>
     <div class="paginate col-lg-12">
       <%= will_paginate @microposts, :container => false, :params => { :search_text => params[:search_text] }, renderer: BootstrapPagination::Rails %>
     </div>
