@@ -18,4 +18,9 @@
       <% end %>
     </table>
   </div>
+  <div class='row'>
+    <div class="paginate col-lg-12">
+      <%= will_paginate @users, :container => false, :params => { :search_text => params[:search_text] }, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
 </div>
