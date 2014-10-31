@@ -9,4 +9,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def status
+    render html: '<b>html goes here<b/>'.html_safe
+  end
+
+
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :microposts
 
   root to: 'home#index'
+  get 'status' => 'status#index'
 
   get 'admin' => 'admin#index'
   get 'admin/:id/edit' => 'admin#edit', :as => 'admin_edit'
