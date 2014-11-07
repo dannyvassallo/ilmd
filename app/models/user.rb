@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :last_name
   validates_presence_of :first_name
+  validates_acceptance_of :tos_agreement, :allow_nil => false, :accept => true, :on => :create
   profanity_filter! :first_name, :last_name
 
 

@@ -19,6 +19,8 @@
 
       <div><%= f.label :password_confirmation, :class => 'reglabel' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <div><p>I agree to and have read the <a class="anostyle" href="https://s3.amazonaws.com/myfangate.com/ilovemydoctor/I++Love+My+Doctor+-+Testimonial+Consent+(9-16-2014).pdf" target="_blank">Terms of Service</a>&nbsp;<%= f.check_box :tos_agreement %></p></div>
+        
 
       <div><%= f.submit "Sign up", :class => 'btn btn-primary'%></div>
 
