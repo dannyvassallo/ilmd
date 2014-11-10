@@ -32,9 +32,6 @@ $(function(){
 
           fin = url + path + postid;
       
-      $('.fb-share').on('click', function(){
-        alert(fin)
-      });
 
         // Additional initialization code such as adding Event Listeners goes here
         FB.ui(
@@ -52,7 +49,6 @@ $(function(){
               alert('Thanks for sharing!');
             } else {
               track('facebook-share', 'fail');
-              alert('Sorry! There was an error publishing your post. Please Try again.');
             }
           }
         );
