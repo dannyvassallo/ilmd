@@ -6,6 +6,12 @@ class MicropostsController < ApplicationController
   # GET /microposts
   # GET /microposts.json
   def index
+    @microposts = Micropost.eager_load(:user).all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data Micropost.as_csv(@microposts) }
+    end
   end
 
   # GET /microposts/1
