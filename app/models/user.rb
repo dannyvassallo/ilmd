@@ -1,3 +1,5 @@
+require_relative "./concerns/csvable"
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,6 +14,10 @@ class User < ActiveRecord::Base
 
   has_many :microposts
 
+  CSV_COLUMN_NAMES = %w(email first_name last_name microposts_count)
+
+  include Csvable
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -20,6 +26,10 @@ class User < ActiveRecord::Base
       user.last_name = auth.info.last_name
       #user.image = auth.info.image # assuming the user model has an image
     end
+  end
+
+  def microposts_count
+    microposts.count
   end
 
 end

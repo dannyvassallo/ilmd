@@ -4,6 +4,11 @@ class AdminController < ApplicationController
 
   def index
     @users = User.all.paginate(:page => params[:page], :per_page => 50)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data User.as_csv(@users) }
+    end
   end
 
   def edit
