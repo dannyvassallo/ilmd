@@ -14,6 +14,11 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def import
+    Micropost.import(params[:file])
+    redirect_to root_url, notice: "Microposts imported."
+  end
+
   # GET /microposts/1
   # GET /microposts/1.json
   def show
