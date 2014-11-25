@@ -11,7 +11,11 @@
     </div>
     <br>
     <div class="userandbuttons">
-      <p class="usertext"><i class="fa fa-user"></i><%= @micropost.user.first_name %> <%= @micropost.user.last_name %><p>
+      <% if @micropost.user == nil %>
+        <p class="usertext"><i class="fa fa-user"></i><%= @micropost.first_name %> <%= @micropost.last_name %><p>
+      <% else %>
+        <p class="usertext"><i class="fa fa-user"></i><%= @micropost.user.first_name %> <%= @micropost.user.last_name %><p>
+      <% end %>
     </div>
     <div class="show-btns">
      <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>

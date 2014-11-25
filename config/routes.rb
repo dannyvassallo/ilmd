@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :microposts
+  resources :microposts do
+    collection { post :import}
+  end
 
   root to: 'home#index'
   get 'status' => 'status#index'

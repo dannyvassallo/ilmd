@@ -11,7 +11,16 @@
       <i class="fa fa-search"></i>
       <%= text_field_tag :search, params[:search], placeholder: 'Search for your doctor...', :class => "input-lg"  %>
       <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
-      <% end %> 
+      <% end %>
+      <% if current_user =  admin? %>
+        <h3>Import a CSV File</h3>
+        <%= form_tag import_microposts_path, multipart: true do %>
+        <br>
+        <%= file_field_tag :file, :class=> "importfield" %>
+        <br>
+        <%= submit_tag "Import CSV", :class=> "btn btn-default" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <br>
@@ -28,7 +37,11 @@
         </div>
         <br>
         <div class="userandbuttons">
-          <p class="usertext"><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
+          <% if micropost.user == nil %>
+            <p class="usertext"><i class="fa fa-user"></i><%= micropost.first_name %> <%= micropost.last_name %><p>
+          <% else %>
+            <p class="usertext"><i class="fa fa-user"></i><%= micropost.user.first_name %> <%= micropost.user.last_name %><p>
+          <% end %>
           <p class="buttongroup">
             <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>
             <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-success" %>
