@@ -46,8 +46,11 @@
             <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>
             <%= link_to '<i class="fa fa-eye"></i> View'.html_safe, micropost, :class => "btn btn-success" %>
             <% if micropost.user == current_user || admin? %>
+              <% if micropost.user == nil %>
+              <% else %> 
               <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(micropost), :class => "btn btn-default" %>
               <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, micropost, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
             <% end %>
           </p>
         </div>
