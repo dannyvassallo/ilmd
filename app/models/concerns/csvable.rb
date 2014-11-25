@@ -27,7 +27,7 @@ module Csvable
 
       record = assoc.nil? ? self : send(assoc)
 
-      record.send(column)
+      record && record.send(column)
     end
   end
 

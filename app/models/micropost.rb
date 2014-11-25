@@ -5,15 +5,8 @@ class Micropost < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-
       micropost_hash = row.to_hash
-      micropost = Micropost.where(id: micropost_hash["id"])
-
-      if micropost.count == 1
-        micropost.first.update_attributes(micropost_hash)
-      else
-        Micropost.create(micropost_hash)
-      end
+      Micropost.create!(micropost_hash)
     end
   end
 
