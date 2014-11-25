@@ -12,7 +12,7 @@ class Micropost < ActiveRecord::Base
       if micropost.count == 1
         micropost.first.update_attributes(micropost_hash)
       else
-        Micropost.create(micropost_hash)
+        Micropost.create!(micropost_hash)
       end
     end
   end
