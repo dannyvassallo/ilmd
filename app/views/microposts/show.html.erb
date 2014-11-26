@@ -20,7 +20,7 @@
     <div class="show-btns">
      <a class="btn btn-primary fb-share facebookbtn2"><i class="fa fa-facebook-square"></i> Share</a>
       <%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "btn btn-success" %>
-      <% if user_signed_in? && (micropost.user == current_user || admin?) %>
+      <% if user_signed_in? && (@micropost.user == current_user || admin?) %>
         <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_micropost_path(@micropost), :class => "btn btn-default" %>
       <% end %>
     </div>
